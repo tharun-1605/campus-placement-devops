@@ -23,7 +23,7 @@ jobs:
 
     - name: Build Frontend Image
       run: |
-          docker build -t tharun1605/placement-frontend:latest ./frontend
+          docker build -t tharun1605/placement-frontend:v1.1 ./frontend
 
     - name: Push Backend Image
       run: |
@@ -31,4 +31,4 @@ jobs:
 
     - name: Push Frontend Image
       run: |
-          docker push tharun1605/placement-frontend:latest
+          docker push tharun1605/placement-frontend:v1.1
