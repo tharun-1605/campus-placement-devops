@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: yourdockerhub/placement-frontend
+        image: tharun1605/placement-frontend:latest
         ports:
         - containerPort: 3000
