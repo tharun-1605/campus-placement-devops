@@ -1,0 +1,34 @@
+name: CI-CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Docker Login
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build Backend Image
+      run: |
+        docker build -t ${{ secrets.tharun1605 }}/backend:latest ./backend
+
+    - name: Build Frontend Image
+      run: |
+        docker build -t ${{ secrets.tharun1605 }}/placement-frontend:latest ./frontend
+
+    - name: Push Backend Image
+      run: |
+        docker push ${{ secrets.tharun1605 }}/backend:latest
+
+    - name: Push Frontend Image
+      run: |
+        docker push ${{ secrets.tharun1605 }}/placement-frontend:latest
